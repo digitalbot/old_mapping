@@ -1,0 +1,1000 @@
+	.section	__TEXT,__text,regular,pure_instructions
+	.section	__TEXT,__literal8,8byte_literals
+	.align	3
+LCPI1_0:
+	.quad	4609434218613702656
+LCPI1_1:
+	.quad	4613937818241073152
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl	_main
+	.align	4, 0x90
+_main:
+Leh_func_begin1:
+	pushq	%rbp
+Ltmp0:
+	movq	%rsp, %rbp
+Ltmp1:
+	subq	$80, %rsp
+Ltmp2:
+	movl	%edi, %eax
+	movl	%eax, -4(%rbp)
+	movq	%rsi, -16(%rbp)
+	leaq	L_.str(%rip), %rax
+	movq	%rax, %rdi
+	callq	_puts
+	movq	___stdinp@GOTPCREL(%rip), %rax
+	movq	(%rax), %rax
+	leaq	-29(%rbp), %rcx
+	movq	%rcx, %rdx
+	movl	$5, %edi
+	movl	%edi, -64(%rbp)
+	movq	%rdx, %rdi
+	movl	-64(%rbp), %edx
+	movl	%edx, %esi
+	movq	%rax, %rdx
+	movq	%rcx, -72(%rbp)
+	callq	_fgets
+	movq	-72(%rbp), %rax
+	movq	%rax, %rdi
+	callq	_atof
+	movsd	%xmm0, -40(%rbp)
+	movsd	_MAX_LAG(%rip), %xmm0
+	movsd	_TS(%rip), %xmm1
+	movsd	-40(%rbp), %xmm2
+	divsd	%xmm2, %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	LCPI1_0(%rip), %xmm1
+	addsd	%xmm1, %xmm0
+	cvttsd2si	%xmm0, %ecx
+	movl	%ecx, -44(%rbp)
+	movl	-44(%rbp), %ecx
+	imull	$2, %ecx, %ecx
+	movl	%ecx, -48(%rbp)
+	movl	-48(%rbp), %ecx
+	xorb	%dl, %dl
+	leaq	L_.str1(%rip), %rdi
+	movl	%ecx, %esi
+	movb	%dl, %al
+	callq	_printf
+	movl	-48(%rbp), %eax
+	addl	$1, %eax
+	movslq	%eax, %rax
+	movabsq	$8, %rcx
+	movq	%rax, %rdi
+	movq	%rcx, %rsi
+	callq	_calloc
+	movq	%rax, -56(%rbp)
+	movl	$0, -60(%rbp)
+	jmp	LBB1_2
+LBB1_1:
+	movl	-60(%rbp), %eax
+	movl	-44(%rbp), %ecx
+	subl	%ecx, %eax
+	cvtsi2sd	%eax, %xmm0
+	movsd	_TS(%rip), %xmm1
+	movsd	-40(%rbp), %xmm2
+	divsd	%xmm2, %xmm1
+	mulsd	%xmm1, %xmm0
+	movq	-56(%rbp), %rax
+	movl	-60(%rbp), %ecx
+	movslq	%ecx, %rcx
+	movsd	%xmm0, (%rax,%rcx,8)
+	movq	-56(%rbp), %rax
+	movl	-60(%rbp), %ecx
+	movslq	%ecx, %rcx
+	movsd	(%rax,%rcx,8), %xmm0
+	movl	-60(%rbp), %eax
+	movl	-44(%rbp), %ecx
+	subl	%ecx, %eax
+	movb	$1, %cl
+	leaq	L_.str2(%rip), %rdx
+	movq	%rdx, %rdi
+	movl	%eax, %esi
+	movb	%cl, %al
+	callq	_printf
+	movl	-60(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -60(%rbp)
+LBB1_2:
+	movl	-60(%rbp), %eax
+	movl	-48(%rbp), %ecx
+	cmpl	%ecx, %eax
+	jle	LBB1_1
+	movq	-56(%rbp), %rax
+	movl	-44(%rbp), %ecx
+	movl	-48(%rbp), %edx
+	movsd	-40(%rbp), %xmm0
+	movq	%rax, %rdi
+	movl	%ecx, %esi
+	callq	_pre_calc
+	leaq	L_.str3(%rip), %rax
+	movq	%rax, %rdi
+	callq	_puts
+	movsd	-40(%rbp), %xmm0
+	movl	-48(%rbp), %ecx
+	movb	$1, %dl
+	leaq	L_.str4(%rip), %rdi
+	movl	%ecx, %esi
+	movb	%dl, %al
+	callq	_printf
+	movl	-48(%rbp), %eax
+	addl	$1, %eax
+	cvtsi2sd	%eax, %xmm0
+	movsd	LCPI1_1(%rip), %xmm1
+	callq	_pow
+	cvttsd2si	%xmm0, %ecx
+	xorb	%dl, %dl
+	leaq	L_.str5(%rip), %rdi
+	movl	%ecx, %esi
+	movb	%dl, %al
+	callq	_printf
+	movq	-56(%rbp), %rax
+	movq	%rax, %rdi
+	callq	_free
+	movl	$0, -24(%rbp)
+	movl	-24(%rbp), %eax
+	movl	%eax, -20(%rbp)
+	movl	-20(%rbp), %eax
+	addq	$80, %rsp
+	popq	%rbp
+	ret
+Leh_func_end1:
+
+	.globl	_pre_calc
+	.align	4, 0x90
+_pre_calc:
+Leh_func_begin2:
+	pushq	%rbp
+Ltmp3:
+	movq	%rsp, %rbp
+Ltmp4:
+	subq	$224, %rsp
+Ltmp5:
+	movl	%edx, %eax
+	movq	___stack_chk_guard@GOTPCREL(%rip), %rcx
+	movq	(%rcx), %rcx
+	movq	%rcx, -8(%rbp)
+	movq	%rdi, -16(%rbp)
+	movl	%esi, -20(%rbp)
+	movl	%eax, -24(%rbp)
+	movsd	%xmm0, -32(%rbp)
+	leaq	-164(%rbp), %rax
+	movq	%rax, %rcx
+	movsd	-32(%rbp), %xmm0
+	xorl	%esi, %esi
+	movl	$100, %edi
+	movb	$1, %r8b
+	leaq	L_.str6(%rip), %r9
+	movq	%rdi, -200(%rbp)
+	movq	%rcx, %rdi
+	movq	-200(%rbp), %rcx
+	movq	%rcx, %rdx
+	movq	%r9, %rcx
+	movq	%rax, -208(%rbp)
+	movb	%r8b, %al
+	callq	___sprintf_chk
+	movq	-208(%rbp), %rax
+	leaq	L_.str7(%rip), %rcx
+	movq	%rax, %rdi
+	movq	%rcx, %rsi
+	callq	_fopen
+	movq	%rax, -176(%rbp)
+	movq	-176(%rbp), %rax
+	cmpq	$0, %rax
+	jne	LBB2_2
+	leaq	L_.str8(%rip), %rax
+	movq	%rax, %rdi
+	callq	_puts
+	movl	$4294967295, %eax
+	movl	%eax, %edi
+	callq	_exit
+LBB2_2:
+	leaq	-64(%rbp), %rax
+	movq	-16(%rbp), %rcx
+	movq	%rcx, -64(%rbp)
+	movl	-24(%rbp), %ecx
+	movl	%ecx, -56(%rbp)
+	movq	-176(%rbp), %rcx
+	movq	%rcx, -48(%rbp)
+	movl	-184(%rbp), %ecx
+	movl	%ecx, -40(%rbp)
+	movl	-188(%rbp), %ecx
+	movl	%ecx, -36(%rbp)
+	movq	%rax, %rcx
+	leaq	_pre_calc.omp_fn.0(%rip), %rdx
+	movl	$0, %esi
+	movq	%rdx, %rdi
+	movl	%esi, -212(%rbp)
+	movq	%rcx, %rsi
+	movl	-212(%rbp), %edx
+	movq	%rax, -224(%rbp)
+	callq	_GOMP_parallel_start
+	movq	-224(%rbp), %rax
+	movq	%rax, %rdi
+	callq	_pre_calc.omp_fn.0
+	callq	_GOMP_parallel_end
+	movq	-64(%rbp), %rax
+	movq	%rax, -16(%rbp)
+	movl	-56(%rbp), %eax
+	movl	%eax, -24(%rbp)
+	movq	-48(%rbp), %rax
+	movq	%rax, -176(%rbp)
+	movl	-40(%rbp), %eax
+	movl	%eax, -184(%rbp)
+	movl	-36(%rbp), %eax
+	movl	%eax, -188(%rbp)
+	movq	-176(%rbp), %rax
+	movq	%rax, %rdi
+	callq	_fclose
+	leaq	-164(%rbp), %rcx
+	xorb	%dl, %dl
+	leaq	L_.str9(%rip), %rsi
+	movq	%rsi, %rdi
+	movq	%rcx, %rsi
+	movb	%dl, %al
+	callq	_printf
+	movq	___stack_chk_guard@GOTPCREL(%rip), %rax
+	movq	(%rax), %rax
+	movq	-8(%rbp), %rcx
+	cmpq	%rcx, %rax
+	jne	LBB2_5
+	addq	$224, %rsp
+	popq	%rbp
+	ret
+LBB2_5:
+	callq	___stack_chk_fail
+Leh_func_end2:
+
+	.align	4, 0x90
+_pre_calc.omp_fn.0:
+Leh_func_begin3:
+	pushq	%rbp
+Ltmp6:
+	movq	%rsp, %rbp
+Ltmp7:
+	subq	$128, %rsp
+Ltmp8:
+	movq	%rdi, -8(%rbp)
+	movq	-8(%rbp), %rax
+	movl	8(%rax), %eax
+	movl	%eax, -80(%rbp)
+	callq	_omp_get_num_threads
+	movl	%eax, %ecx
+	movl	%ecx, -84(%rbp)
+	callq	_omp_get_thread_num
+	movl	%eax, %ecx
+	movl	-80(%rbp), %esi
+	addl	$1, %esi
+	movl	%esi, %eax
+	cltd
+	movl	-84(%rbp), %edi
+	idivl	%edi
+	movl	%eax, %edx
+	movl	%edx, %r8d
+	imull	%edi, %r8d
+	cmpl	%esi, %r8d
+	setne	%dil
+	movzbl	%dil, %edi
+	leal	(%rdx,%rdi), %edx
+	movl	%edx, %edi
+	imull	%ecx, %edi
+	leal	(%rdi,%rdx), %ecx
+	cmpl	%esi, %ecx
+	cmovlel	%ecx, %esi
+	cmpl	%esi, %edi
+	movl	%edi, -88(%rbp)
+	movl	%esi, -92(%rbp)
+	jl	LBB3_2
+LBB3_1:
+	jmp	LBB3_12
+LBB3_2:
+	movl	-88(%rbp), %eax
+	imull	$1, %eax, %ecx
+	addl	$0, %ecx
+	movl	%ecx, -76(%rbp)
+	movl	-92(%rbp), %ecx
+	imull	$1, %ecx, %edx
+	addl	$0, %edx
+	movl	%edx, -96(%rbp)
+LBB3_3:
+	movq	-8(%rbp), %rax
+	movl	$0, 24(%rax)
+LBB3_4:
+	movq	-8(%rbp), %rax
+	movl	24(%rax), %eax
+	movl	%eax, -72(%rbp)
+	movq	-8(%rbp), %rax
+	movl	8(%rax), %eax
+	movl	%eax, -68(%rbp)
+	movl	-72(%rbp), %eax
+	movl	-68(%rbp), %ecx
+	cmpl	%ecx, %eax
+	jle	LBB3_6
+	leaq	L_.str10(%rip), %rax
+	movq	%rax, %rdi
+	callq	_puts
+	movl	-76(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -76(%rbp)
+	movl	-76(%rbp), %eax
+	movl	-96(%rbp), %ecx
+	cmpl	%ecx, %eax
+	setl	%al
+	andb	$1, %al
+	cmpb	$0, %al
+	jne	LBB3_3
+	jmp	LBB3_1
+LBB3_6:
+	movq	-8(%rbp), %rax
+	movl	$0, 28(%rax)
+LBB3_7:
+	movq	-8(%rbp), %rax
+	movl	28(%rax), %eax
+	movl	%eax, -64(%rbp)
+	movq	-8(%rbp), %rax
+	movl	8(%rax), %eax
+	movl	%eax, -60(%rbp)
+	movl	-64(%rbp), %eax
+	movl	-60(%rbp), %ecx
+	cmpl	%ecx, %eax
+	jle	LBB3_9
+	leaq	L_.str11(%rip), %rax
+	movq	%rax, %rdi
+	callq	_puts
+	movq	-8(%rbp), %rax
+	movl	24(%rax), %eax
+	movl	%eax, -56(%rbp)
+	movl	-56(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -52(%rbp)
+	movq	-8(%rbp), %rax
+	movl	-52(%rbp), %ecx
+	movl	%ecx, 24(%rax)
+	jmp	LBB3_4
+LBB3_9:
+	movq	-8(%rbp), %rax
+	movq	(%rax), %rax
+	movq	-8(%rbp), %rcx
+	movl	28(%rcx), %ecx
+	movslq	%ecx, %rcx
+	movsd	(%rax,%rcx,8), %xmm0
+	movq	-8(%rbp), %rax
+	movq	(%rax), %rax
+	movq	-8(%rbp), %rcx
+	movl	24(%rcx), %ecx
+	movslq	%ecx, %rcx
+	movsd	(%rax,%rcx,8), %xmm1
+	movq	-8(%rbp), %rax
+	movq	(%rax), %rax
+	movl	-76(%rbp), %ecx
+	movslq	%ecx, %rcx
+	movsd	(%rax,%rcx,8), %xmm2
+	leaq	-48(%rbp), %rax
+	movq	%rax, %rdi
+	movsd	%xmm0, -104(%rbp)
+	movapd	%xmm2, %xmm0
+	movsd	-104(%rbp), %xmm2
+	callq	_calc_answer
+	movsd	-48(%rbp), %xmm0
+	movabsq	$987654321, %rax
+	cvtsi2sdq	%rax, %xmm1
+	ucomisd	%xmm1, %xmm0
+	jne	LBB3_11
+	jp	LBB3_11
+LBB3_10:
+	movq	-8(%rbp), %rax
+	movl	28(%rax), %eax
+	movl	%eax, -24(%rbp)
+	movl	-24(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -20(%rbp)
+	movq	-8(%rbp), %rax
+	movl	-20(%rbp), %ecx
+	movl	%ecx, 28(%rax)
+	jmp	LBB3_7
+LBB3_11:
+	movsd	-32(%rbp), %xmm0
+	movsd	-40(%rbp), %xmm1
+	movsd	-48(%rbp), %xmm2
+	movq	-8(%rbp), %rax
+	movl	8(%rax), %eax
+	addl	$1, %eax
+	movl	-76(%rbp), %ecx
+	imull	%ecx, %eax
+	movq	-8(%rbp), %rcx
+	movl	24(%rcx), %ecx
+	addl	%ecx, %eax
+	movq	-8(%rbp), %rcx
+	movl	8(%rcx), %ecx
+	addl	$1, %ecx
+	imull	%ecx, %eax
+	movq	-8(%rbp), %rcx
+	movl	28(%rcx), %ecx
+	addl	%ecx, %eax
+	movq	-8(%rbp), %rcx
+	movq	16(%rcx), %rcx
+	movq	%rcx, -16(%rbp)
+	movq	-16(%rbp), %rcx
+	movb	$3, %dl
+	leaq	L_.str12(%rip), %rsi
+	movq	%rcx, %rdi
+	movb	%dl, -105(%rbp)
+	movl	%eax, %edx
+	movsd	%xmm0, -120(%rbp)
+	movapd	%xmm2, %xmm0
+	movsd	-120(%rbp), %xmm2
+	movb	-105(%rbp), %al
+	callq	_fprintf
+	jmp	LBB3_10
+LBB3_12:
+	addq	$128, %rsp
+	popq	%rbp
+	ret
+Leh_func_end3:
+
+	.section	__TEXT,__literal8,8byte_literals
+	.align	3
+LCPI4_0:
+	.quad	4611686018427387904
+LCPI4_1:
+	.quad	4613937818241073152
+LCPI4_2:
+	.quad	4616189618054758400
+LCPI4_3:
+	.quad	4614982882171571370
+LCPI4_4:
+	.quad	4617201778973810990
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl	_calc_answer
+	.align	4, 0x90
+_calc_answer:
+Leh_func_begin4:
+	pushq	%rbp
+Ltmp9:
+	movq	%rsp, %rbp
+Ltmp10:
+	subq	$336, %rsp
+Ltmp11:
+	movq	%rdi, %rax
+	movsd	%xmm0, -24(%rbp)
+	movsd	%xmm1, -32(%rbp)
+	movsd	%xmm2, -40(%rbp)
+	movabsq	$0, %rcx
+	cvtsi2sdq	%rcx, %xmm0
+	movsd	%xmm0, -64(%rbp)
+	movsd	%xmm0, -56(%rbp)
+	movsd	%xmm0, -48(%rbp)
+	movsd	_SONIC(%rip), %xmm1
+	movsd	-24(%rbp), %xmm2
+	mulsd	%xmm2, %xmm1
+	movsd	%xmm1, -72(%rbp)
+	movsd	_SONIC(%rip), %xmm1
+	movsd	-32(%rbp), %xmm2
+	mulsd	%xmm2, %xmm1
+	movsd	%xmm1, -80(%rbp)
+	movsd	_SONIC(%rip), %xmm1
+	movsd	-40(%rbp), %xmm2
+	mulsd	%xmm2, %xmm1
+	movsd	%xmm1, -88(%rbp)
+	movsd	-72(%rbp), %xmm1
+	movsd	LCPI4_0(%rip), %xmm2
+	movsd	%xmm0, -240(%rbp)
+	movapd	%xmm1, %xmm0
+	movapd	%xmm2, %xmm1
+	movq	%rax, -248(%rbp)
+	movq	%rdi, -256(%rbp)
+	callq	_pow
+	movsd	%xmm0, -96(%rbp)
+	movsd	-80(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -104(%rbp)
+	movsd	-88(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -112(%rbp)
+	movsd	_DIST(%rip), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -120(%rbp)
+	movsd	-96(%rbp), %xmm0
+	movsd	-104(%rbp), %xmm1
+	addsd	%xmm1, %xmm0
+	movsd	-112(%rbp), %xmm1
+	addsd	%xmm1, %xmm0
+	movabsq	$3, %rax
+	cvtsi2sdq	%rax, %xmm1
+	mulsd	%xmm1, %xmm0
+	movsd	-72(%rbp), %xmm2
+	movsd	-80(%rbp), %xmm3
+	mulsd	%xmm3, %xmm2
+	movsd	-72(%rbp), %xmm3
+	movsd	-88(%rbp), %xmm4
+	mulsd	%xmm4, %xmm3
+	addsd	%xmm3, %xmm2
+	movsd	-80(%rbp), %xmm3
+	movsd	-88(%rbp), %xmm4
+	mulsd	%xmm4, %xmm3
+	addsd	%xmm3, %xmm2
+	movsd	-120(%rbp), %xmm3
+	addsd	%xmm3, %xmm2
+	movabsq	$-2, %rax
+	cvtsi2sdq	%rax, %xmm3
+	mulsd	%xmm3, %xmm2
+	addsd	%xmm2, %xmm0
+	movabsq	$4, %rax
+	cvtsi2sdq	%rax, %xmm2
+	mulsd	%xmm2, %xmm0
+	movsd	%xmm0, -128(%rbp)
+	movsd	-72(%rbp), %xmm0
+	movsd	LCPI4_1(%rip), %xmm4
+	movsd	%xmm1, -264(%rbp)
+	movapd	%xmm4, %xmm1
+	movsd	%xmm2, -272(%rbp)
+	movsd	%xmm3, -280(%rbp)
+	callq	_pow
+	movsd	-80(%rbp), %xmm1
+	movsd	LCPI4_1(%rip), %xmm2
+	movsd	%xmm0, -288(%rbp)
+	movapd	%xmm1, %xmm0
+	movapd	%xmm2, %xmm1
+	callq	_pow
+	movsd	-288(%rbp), %xmm1
+	addsd	%xmm0, %xmm1
+	movsd	-88(%rbp), %xmm0
+	movsd	LCPI4_1(%rip), %xmm2
+	movsd	%xmm1, -296(%rbp)
+	movapd	%xmm2, %xmm1
+	callq	_pow
+	movsd	-296(%rbp), %xmm1
+	addsd	%xmm0, %xmm1
+	movabsq	$-3, %rax
+	cvtsi2sdq	%rax, %xmm0
+	mulsd	%xmm0, %xmm1
+	movsd	-80(%rbp), %xmm0
+	movsd	-88(%rbp), %xmm2
+	addsd	%xmm2, %xmm0
+	movsd	-96(%rbp), %xmm2
+	mulsd	%xmm2, %xmm0
+	addsd	%xmm0, %xmm1
+	movsd	-72(%rbp), %xmm0
+	movsd	-88(%rbp), %xmm2
+	addsd	%xmm2, %xmm0
+	movsd	-104(%rbp), %xmm2
+	mulsd	%xmm2, %xmm0
+	addsd	%xmm0, %xmm1
+	movsd	-72(%rbp), %xmm0
+	movsd	-80(%rbp), %xmm2
+	addsd	%xmm2, %xmm0
+	movsd	-112(%rbp), %xmm2
+	mulsd	%xmm2, %xmm0
+	addsd	%xmm0, %xmm1
+	movsd	-72(%rbp), %xmm0
+	movsd	-80(%rbp), %xmm2
+	addsd	%xmm2, %xmm0
+	movsd	-88(%rbp), %xmm2
+	addsd	%xmm2, %xmm0
+	movsd	-120(%rbp), %xmm2
+	mulsd	%xmm2, %xmm0
+	addsd	%xmm0, %xmm1
+	movsd	-272(%rbp), %xmm0
+	mulsd	%xmm0, %xmm1
+	movsd	%xmm1, -136(%rbp)
+	movsd	_DIST(%rip), %xmm0
+	movsd	LCPI4_2(%rip), %xmm1
+	callq	_pow
+	movsd	-72(%rbp), %xmm1
+	movsd	LCPI4_2(%rip), %xmm2
+	movsd	%xmm0, -304(%rbp)
+	movapd	%xmm1, %xmm0
+	movapd	%xmm2, %xmm1
+	callq	_pow
+	movsd	-304(%rbp), %xmm1
+	addsd	%xmm0, %xmm1
+	movsd	-80(%rbp), %xmm0
+	movsd	LCPI4_2(%rip), %xmm2
+	movsd	%xmm1, -312(%rbp)
+	movapd	%xmm2, %xmm1
+	callq	_pow
+	movsd	-312(%rbp), %xmm1
+	addsd	%xmm0, %xmm1
+	movsd	-88(%rbp), %xmm0
+	movsd	LCPI4_2(%rip), %xmm2
+	movsd	%xmm1, -320(%rbp)
+	movapd	%xmm2, %xmm1
+	callq	_pow
+	movsd	-320(%rbp), %xmm1
+	addsd	%xmm0, %xmm1
+	movsd	-264(%rbp), %xmm0
+	mulsd	%xmm0, %xmm1
+	movsd	-120(%rbp), %xmm0
+	movsd	-280(%rbp), %xmm2
+	mulsd	%xmm2, %xmm0
+	movsd	-96(%rbp), %xmm3
+	movsd	-104(%rbp), %xmm4
+	addsd	%xmm4, %xmm3
+	movsd	-112(%rbp), %xmm4
+	addsd	%xmm4, %xmm3
+	mulsd	%xmm3, %xmm0
+	addsd	%xmm0, %xmm1
+	movsd	-96(%rbp), %xmm0
+	movsd	-104(%rbp), %xmm3
+	mulsd	%xmm3, %xmm0
+	movsd	-96(%rbp), %xmm3
+	movsd	-104(%rbp), %xmm4
+	addsd	%xmm4, %xmm3
+	movsd	-112(%rbp), %xmm4
+	mulsd	%xmm4, %xmm3
+	addsd	%xmm3, %xmm0
+	mulsd	%xmm2, %xmm0
+	addsd	%xmm0, %xmm1
+	movsd	%xmm1, -144(%rbp)
+	movsd	-128(%rbp), %xmm0
+	movsd	-240(%rbp), %xmm1
+	ucomisd	%xmm1, %xmm0
+	jne	LBB4_2
+	jp	LBB4_2
+	movsd	-144(%rbp), %xmm0
+	movsd	-136(%rbp), %xmm1
+	divsd	%xmm1, %xmm0
+	movd	%xmm0, %rax
+	movabsq	$-9223372036854775808, %rcx
+	xorq	%rcx, %rax
+	movd	%rax, %xmm0
+	movsd	%xmm0, -152(%rbp)
+	jmp	LBB4_3
+LBB4_2:
+	movsd	-128(%rbp), %xmm0
+	movabsq	$-2, %rax
+	cvtsi2sdq	%rax, %xmm1
+	mulsd	%xmm1, %xmm0
+	movsd	-136(%rbp), %xmm1
+	divsd	%xmm0, %xmm1
+	movsd	-136(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm2
+	movsd	%xmm1, -328(%rbp)
+	movapd	%xmm2, %xmm1
+	callq	_pow
+	movsd	-128(%rbp), %xmm1
+	movabsq	$-4, %rax
+	cvtsi2sdq	%rax, %xmm2
+	mulsd	%xmm2, %xmm1
+	movsd	-144(%rbp), %xmm2
+	mulsd	%xmm2, %xmm1
+	addsd	%xmm1, %xmm0
+	callq	_sqrt
+	movsd	-128(%rbp), %xmm1
+	movabsq	$2, %rax
+	cvtsi2sdq	%rax, %xmm2
+	mulsd	%xmm2, %xmm1
+	movsd	%xmm0, -336(%rbp)
+	movapd	%xmm1, %xmm0
+	callq	_fabs
+	movsd	-336(%rbp), %xmm1
+	divsd	%xmm0, %xmm1
+	movsd	-328(%rbp), %xmm0
+	addsd	%xmm1, %xmm0
+	movsd	%xmm0, -152(%rbp)
+LBB4_3:
+	movsd	-152(%rbp), %xmm0
+	movsd	%xmm0, -8(%rbp)
+	movsd	-8(%rbp), %xmm0
+	movsd	-8(%rbp), %xmm1
+	ucomisd	%xmm1, %xmm0
+	setne	%al
+	setp	%cl
+	orb	%al, %cl
+	andb	$1, %cl
+	movzbl	%cl, %eax
+	movl	%eax, -16(%rbp)
+	movl	-16(%rbp), %eax
+	movl	%eax, -12(%rbp)
+	movl	-12(%rbp), %eax
+	cmpl	$0, %eax
+	je	LBB4_5
+	movabsq	$987654321, %rax
+	cvtsi2sdq	%rax, %xmm0
+	movsd	%xmm0, -64(%rbp)
+	movsd	%xmm0, -56(%rbp)
+	movsd	%xmm0, -48(%rbp)
+	movsd	-64(%rbp), %xmm0
+	movq	-256(%rbp), %rax
+	movsd	%xmm0, (%rax)
+	movsd	-56(%rbp), %xmm0
+	movsd	%xmm0, 8(%rax)
+	movsd	-48(%rbp), %xmm0
+	movsd	%xmm0, 16(%rax)
+	jmp	LBB4_6
+LBB4_5:
+	movsd	-152(%rbp), %xmm0
+	movsd	-72(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	%xmm0, -160(%rbp)
+	movsd	-152(%rbp), %xmm0
+	movsd	-80(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	%xmm0, -168(%rbp)
+	movsd	-152(%rbp), %xmm0
+	movsd	-88(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	%xmm0, -176(%rbp)
+	movsd	-152(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -184(%rbp)
+	movsd	-160(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -192(%rbp)
+	movsd	-168(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -200(%rbp)
+	movsd	-176(%rbp), %xmm0
+	movsd	LCPI4_0(%rip), %xmm1
+	callq	_pow
+	movsd	%xmm0, -208(%rbp)
+	movsd	-192(%rbp), %xmm0
+	movsd	-120(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	-184(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	_DIST(%rip), %xmm1
+	movabsq	$2, %rax
+	cvtsi2sdq	%rax, %xmm2
+	mulsd	%xmm2, %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	%xmm0, -216(%rbp)
+	movsd	-200(%rbp), %xmm0
+	mulsd	%xmm2, %xmm0
+	movsd	-120(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	-184(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	-192(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	_DIST(%rip), %xmm1
+	movsd	LCPI4_3(%rip), %xmm2
+	mulsd	%xmm2, %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	%xmm0, -224(%rbp)
+	movsd	-208(%rbp), %xmm0
+	movabsq	$3, %rax
+	cvtsi2sdq	%rax, %xmm1
+	mulsd	%xmm1, %xmm0
+	movsd	-120(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	-184(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	-192(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	-200(%rbp), %xmm1
+	subsd	%xmm1, %xmm0
+	movsd	_DIST(%rip), %xmm1
+	movsd	LCPI4_4(%rip), %xmm2
+	mulsd	%xmm2, %xmm1
+	divsd	%xmm1, %xmm0
+	movsd	%xmm0, -232(%rbp)
+	movsd	-216(%rbp), %xmm0
+	movsd	%xmm0, -64(%rbp)
+	movsd	-224(%rbp), %xmm0
+	movsd	%xmm0, -56(%rbp)
+	movsd	-232(%rbp), %xmm0
+	movsd	%xmm0, -48(%rbp)
+	movsd	-64(%rbp), %xmm0
+	movq	-256(%rbp), %rax
+	movsd	%xmm0, (%rax)
+	movsd	-56(%rbp), %xmm0
+	movsd	%xmm0, 8(%rax)
+	movsd	-48(%rbp), %xmm0
+	movsd	%xmm0, 16(%rax)
+LBB4_6:
+	movq	-248(%rbp), %rax
+	addq	$336, %rsp
+	popq	%rbp
+	ret
+Leh_func_end4:
+
+	.section	__TEXT,__literal8,8byte_literals
+	.globl	_DIST
+	.align	3
+_DIST:
+	.quad	4587366580439587226
+
+	.section	__TEXT,__cstring,cstring_literals
+	.align	3
+L_.str:
+	.asciz	 "type number [1~32]. (32 is very very heavy...)"
+
+	.section	__TEXT,__literal8,8byte_literals
+	.globl	_MAX_LAG
+	.align	3
+_MAX_LAG:
+	.quad	4549557536978601112
+
+	.section	__DATA,__data
+	.globl	_TS
+	.align	3
+_TS:
+	.quad	4532266540218261524
+
+	.section	__TEXT,__cstring,cstring_literals
+L_.str1:
+	.asciz	 "range is %d\n"
+
+L_.str2:
+	.asciz	 "%d %.10f\n"
+
+L_.str3:
+	.asciz	 "DONE"
+
+L_.str4:
+	.asciz	 "ratio %f, range %d\n"
+
+L_.str5:
+	.asciz	 "max index: %d\n"
+
+L_.str6:
+	.asciz	 "mapping_%f.csv"
+
+L_.str7:
+	.asciz	 "w"
+
+L_.str8:
+	.asciz	 "ERROR!"
+
+L_.str9:
+	.asciz	 "Output was named %s\n"
+
+L_.str10:
+	.asciz	 "_____"
+
+L_.str11:
+	.asciz	 "."
+
+L_.str12:
+	.asciz	 "%d, %.13f, %.13f, %.13f\n"
+
+	.section	__TEXT,__literal8,8byte_literals
+	.globl	_SONIC
+	.align	3
+_SONIC:
+	.quad	4644688959446712320
+
+	.section	__DATA,__data
+	.globl	_FS
+	.align	3
+_FS:
+	.quad	4681333482977230848
+
+	.section	__TEXT,__eh_frame,coalesced,no_toc+strip_static_syms+live_support
+EH_frame0:
+Lsection_eh_frame:
+Leh_frame_common:
+Lset0 = Leh_frame_common_end-Leh_frame_common_begin
+	.long	Lset0
+Leh_frame_common_begin:
+	.long	0
+	.byte	1
+	.asciz	 "zR"
+	.byte	1
+	.byte	120
+	.byte	16
+	.byte	1
+	.byte	16
+	.byte	12
+	.byte	7
+	.byte	8
+	.byte	144
+	.byte	1
+	.align	3
+Leh_frame_common_end:
+	.globl	_main.eh
+_main.eh:
+Lset1 = Leh_frame_end1-Leh_frame_begin1
+	.long	Lset1
+Leh_frame_begin1:
+Lset2 = Leh_frame_begin1-Leh_frame_common
+	.long	Lset2
+Ltmp12:
+	.quad	Leh_func_begin1-Ltmp12
+Lset3 = Leh_func_end1-Leh_func_begin1
+	.quad	Lset3
+	.byte	0
+	.byte	4
+Lset4 = Ltmp0-Leh_func_begin1
+	.long	Lset4
+	.byte	14
+	.byte	16
+	.byte	134
+	.byte	2
+	.byte	4
+Lset5 = Ltmp1-Ltmp0
+	.long	Lset5
+	.byte	13
+	.byte	6
+	.align	3
+Leh_frame_end1:
+
+	.globl	_pre_calc.eh
+_pre_calc.eh:
+Lset6 = Leh_frame_end2-Leh_frame_begin2
+	.long	Lset6
+Leh_frame_begin2:
+Lset7 = Leh_frame_begin2-Leh_frame_common
+	.long	Lset7
+Ltmp13:
+	.quad	Leh_func_begin2-Ltmp13
+Lset8 = Leh_func_end2-Leh_func_begin2
+	.quad	Lset8
+	.byte	0
+	.byte	4
+Lset9 = Ltmp3-Leh_func_begin2
+	.long	Lset9
+	.byte	14
+	.byte	16
+	.byte	134
+	.byte	2
+	.byte	4
+Lset10 = Ltmp4-Ltmp3
+	.long	Lset10
+	.byte	13
+	.byte	6
+	.align	3
+Leh_frame_end2:
+
+_pre_calc.omp_fn.0.eh:
+Lset11 = Leh_frame_end3-Leh_frame_begin3
+	.long	Lset11
+Leh_frame_begin3:
+Lset12 = Leh_frame_begin3-Leh_frame_common
+	.long	Lset12
+Ltmp14:
+	.quad	Leh_func_begin3-Ltmp14
+Lset13 = Leh_func_end3-Leh_func_begin3
+	.quad	Lset13
+	.byte	0
+	.byte	4
+Lset14 = Ltmp6-Leh_func_begin3
+	.long	Lset14
+	.byte	14
+	.byte	16
+	.byte	134
+	.byte	2
+	.byte	4
+Lset15 = Ltmp7-Ltmp6
+	.long	Lset15
+	.byte	13
+	.byte	6
+	.align	3
+Leh_frame_end3:
+
+	.globl	_calc_answer.eh
+_calc_answer.eh:
+Lset16 = Leh_frame_end4-Leh_frame_begin4
+	.long	Lset16
+Leh_frame_begin4:
+Lset17 = Leh_frame_begin4-Leh_frame_common
+	.long	Lset17
+Ltmp15:
+	.quad	Leh_func_begin4-Ltmp15
+Lset18 = Leh_func_end4-Leh_func_begin4
+	.quad	Lset18
+	.byte	0
+	.byte	4
+Lset19 = Ltmp9-Leh_func_begin4
+	.long	Lset19
+	.byte	14
+	.byte	16
+	.byte	134
+	.byte	2
+	.byte	4
+Lset20 = Ltmp10-Ltmp9
+	.long	Lset20
+	.byte	13
+	.byte	6
+	.align	3
+Leh_frame_end4:
+
+
+.subsections_via_symbols
