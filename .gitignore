@@ -2,5 +2,5 @@
 mapping
 map_png_matlab
 omp/omp-map
-no_omp/map
+not_omp/map
 
