@@ -1,6 +1,6 @@
 *.csv
 mapping
 map_png_matlab
-omp/omp-map
+omp/map-omp
 not_omp/map
 
