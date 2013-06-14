@@ -56,7 +56,7 @@ typedef struct {
 } st_answer;
 
 st_answer calc_answer(double a_lag, double b_lag, double c_lag);
-void pre_calc(double *list, int limit, int  range, double mag);
+void pre_calc(double *list, int limit, int  range, int mag);
 
 
 int main(int argc, char *argv[]) {
@@ -64,12 +64,12 @@ int main(int argc, char *argv[]) {
     char ratio[5];
     printf("type number [1~32]. (32 is very very heavy...)\n");
     fgets(ratio, 5, stdin);
-    double mag = atof(ratio);
+    int mag = atoi(ratio);
 
     int limit_sample    = (MAX_LAG / (TS / mag)) + 1.5;
     int range           = limit_sample * 2;
 
-    printf("range is %d\n", range);
+    //printf("range is %d\n", range);
 
     /* these are dist lag */
     double *lag_list = calloc(range + 1, sizeof(double));
@@ -77,28 +77,30 @@ int main(int argc, char *argv[]) {
     int i;
     for (i=0; i<=range; i++) {
         lag_list[i] = (i - limit_sample) * (TS / mag);
-        printf("%d %.10f\n", i - limit_sample, lag_list[i]);
+        //printf("%d %.10f\n", i - limit_sample, lag_list[i]);
     }
 
     pre_calc(lag_list, limit_sample, range, mag);
 
     printf("DONE\n");
-    printf("ratio %f, range %d\n", mag, range);
+    printf("ratio %d, range %d\n", mag, range);
     printf("max index: %d\n", (int)pow((range + 1), 3));
     free(lag_list);
     return 0;
 }
 
-void pre_calc(double *list, int limit, int range, double mag) {
+void pre_calc(double *list, int limit, int range, int mag) {
     char f_name[100];
-    sprintf(f_name, "mapping_%f.csv", mag);
+    sprintf(f_name, "mapping_%d.csv", mag);
     FILE *fp = fopen(f_name, "w");
     if (fp == NULL) {
         printf("ERROR!\n");
         exit(-1);
     }
     int j, k, l;
+
 #ifdef _OPENMP
+    printf("open mp! t: %d\n", omp_get_max_threads());
 #pragma omp parallel for
 #endif
     for (j=0; j<=range; j++) {
@@ -116,7 +118,7 @@ void pre_calc(double *list, int limit, int range, double mag) {
                             answers.x, answers.y, answers.z);
                 }
             }
-            printf(".\n");
+            //printf(".\n");
         }
         printf("_____\n");
     }
